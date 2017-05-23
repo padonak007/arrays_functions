@@ -9,15 +9,21 @@ function reverse(array) {
     return outputArray;
 }
 
-function filter (array, callback) {
-    for (var i= 0; i<array.length,i++){
-        callback();
-        
+function filter(array, callback) {
+    var outputArray = [];
+    for (var i = 0; i < array.length; i++){
+        if (callback()) {
+            outputArray.push(array[i]);
+        }
     }
+    return outputArray;
 }
 
 $("#bn1").click(function () {
-    inputArray = JSON.parse("["+$("#in1").val()+"]");
+    inputArray = JSON.parse("[" + $("#in1").val() + "]");
     console.log(testArray);
     $("#ou1").text(reverse(inputArray));
 });
+
+console.log(filter(testArray, function () {
+    return true}));
